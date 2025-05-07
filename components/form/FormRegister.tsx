@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Spacer from "@/components/Form/Spacer";
+import Spacer from "@/components/Spacer";
 
 const FormRegister = () => {
     const handleRegister = (e: React.FormEvent) => {
@@ -27,9 +27,9 @@ const FormRegister = () => {
             </div>
             <Button type="submit" className="w-full">Sign Up</Button>
 
-            <p className="text-sm text-center">Already have an account? <Link href="/login" className="text-primary">Login</Link></p>
-
             <Spacer />
+
+            <p className="text-sm text-center">Already have an account? <Link href="/login" className="text-primary">Login</Link></p>
         </form>
     )
 }

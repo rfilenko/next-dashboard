@@ -1,16 +1,13 @@
-'use client'
+import { UserInfo } from "@/components/UserInfo";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+const Home = async () => {
+  const session = await auth()
 
-const Home = () => {
   return (
-    <div className="max-w-4xl mx-auto py-10 flex flex-col items-center justify-center h-full">
-      <h1 className="text-4xl font-bold mb-4">Home page</h1>
-      <div className="flex gap-4">
-        <Link href="/login">Login</Link>
-        <Link href="/register">Register</Link>
-      </div>
+    <div className="max-w-4xl mx-auto py-10 h-full">
+      {session?.user ? <UserInfo user={session.user} /> : redirect('/login')}
     </div>
   );
 }
