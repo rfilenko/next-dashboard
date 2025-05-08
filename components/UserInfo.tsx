@@ -3,7 +3,11 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
 import Image from 'next/image'
 import { User } from 'next-auth'
 
-export const UserInfo = async ({ user }: { user: User | null }) => {
+interface UserInfoProps {
+    user: User | null
+}
+
+export const UserInfo = async ({ user }: UserInfoProps) => {
     if (!user) return null
 
     return (
@@ -11,8 +15,8 @@ export const UserInfo = async ({ user }: { user: User | null }) => {
             <Card className='w-full'>
                 <CardHeader>
                     <CardTitle className='flex gap-2 items-center'>
-                        <h1 className="text-2xl font-bold text-center mb-2">Welcome, {user.name}</h1>
-                        <Image className='rounded-full mx-auto' src={user.image || ''} alt={user.name || ''} width={64} height={64} />
+                        <h1 className="text-2xl font-bold text-center mb-2">Welcome back, {user.name ? user.name : 'admin'}</h1>
+                        {user.image && <Image className='rounded-full mx-auto' src={user.image || ''} alt={user.name || ''} width={64} height={64} />}
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
