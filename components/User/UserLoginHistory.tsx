@@ -41,7 +41,7 @@ interface ChartInfoProps {
     history: LoginHistoryItem[]
 }
 
-const LoginHistory = ({ history }: ChartInfoProps) => {
+const UserLoginHistory = ({ history }: ChartInfoProps) => {
     const sortedHistory = [...history].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     const chartData = sortedHistory.map((item) => {
         return {
@@ -53,7 +53,7 @@ const LoginHistory = ({ history }: ChartInfoProps) => {
     })
 
     return (
-        <Card>
+        <Card data-name="UserLoginHistory">
             <CardHeader>
                 <CardTitle>Users login history </CardTitle>
                 <CardDescription  className="flex items-center gap-2"><HistoryIcon className="h-4 w-4" /> {new Date(sortedHistory[0].date).toDateString()} - {new Date(sortedHistory[sortedHistory.length - 1].date).toDateString()}</CardDescription>
@@ -102,4 +102,4 @@ const LoginHistory = ({ history }: ChartInfoProps) => {
 }
 
 
-export default LoginHistory
+export default UserLoginHistory
