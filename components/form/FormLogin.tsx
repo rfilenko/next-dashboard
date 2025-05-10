@@ -16,7 +16,7 @@ const FormLogin = ({ error, setError }: FormLoginProps) => {
             email: formData.get('email'),
             password: formData.get('password'),
             redirect: false,
-            redirectTo: '/',
+            redirectTo: '/dashboard',
             callbackUrl: '/'
         })
 

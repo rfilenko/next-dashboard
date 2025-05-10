@@ -1,9 +1,9 @@
 import { UserInfo } from "@/components/UserInfo";
-import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import getSession from "@/lib/getSession";
 
 const Home = async () => {
-  const session = await auth()
+  const session = await getSession()
 
   return (
     <div className="max-w-4xl mx-auto py-10 h-full">

@@ -2,10 +2,15 @@ import NextAuth from "next-auth"
 import GitHub from "next-auth/providers/github"
 import Credentials from "next-auth/providers/credentials"
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+export const { handlers, signIn, signOut, auth  } = NextAuth({
   providers: [GitHub({
     clientId: process.env.AUTH_GITHUB_ID,
     clientSecret: process.env.AUTH_GITHUB_SECRET,
+    authorization: {
+      params: {
+        scope: 'user'   
+      }
+    }
   }), Credentials({
     id: "credentials",
     name: "Credentials",
@@ -20,7 +25,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (credentials?.email === email && credentials?.password === password) {
         return {
           email,
-          password
+          password,
+          role: 'admin'
         }
       } else {
         throw new Error('Invalid credentials')

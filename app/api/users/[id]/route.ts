@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { users } from '@/app/users/users'
+import { users } from '@/app/(admin)/users/users'
 import { User as UserType } from "@/app/types"
 
 export async function GET(_request: Request, { params }: { params: { id: string } }) {

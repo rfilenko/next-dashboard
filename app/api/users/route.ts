@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { users } from '@/app/users/users'
+import { users } from '@/app/(admin)/users/users'
 
 export async function GET() {
     try {

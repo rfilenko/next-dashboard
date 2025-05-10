@@ -35,8 +35,9 @@ const UsersList = () => {
     }
 
     return (
-        <div className="max-w-5xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <h2 className="text-2xl font-bold text-center mb-2 grid col-span-3 justify-self-start">List of registered users</h2>
+
             {users.map((user) => (
                 <Link href={`/users/${user.id}`} className='hover:translate-y-[-5px] transition-all' key={user.id}>
                     <Card className="w-full">
@@ -60,15 +61,15 @@ const UsersList = () => {
                         </CardHeader>
                         <CardContent>
                             <div className="space-y-2">
-                                <p className="text-sm text-muted-foreground">
+                                <p className="text-sm text-muted-foreground truncate">
                                     <span className="font-medium">Email:</span> {user.email}
                                 </p>
-                                <p className="text-sm text-muted-foreground">
+                                <p className="text-sm text-muted-foreground truncate">
                                     <span className="font-medium">Company:</span> {user.company?.name}
                                 </p>
                             </div>
                         </CardContent>
-                        <CardFooter className="flex justify-between items-center">
+                        <CardFooter className="flex justify-between items-center flex-wrap gap-2">
                             <div className="flex items-center gap-2">
                                 <span className="text-sm text-muted-foreground">Joined:</span>
                                 <span className="text-sm font-medium">

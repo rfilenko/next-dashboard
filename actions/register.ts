@@ -5,7 +5,7 @@ import { signIn, signOut } from "@/auth"
 export const SignInGithubAction = async () => {
     await signIn("github", {
         redirect: true,
-        redirectTo: '/'
+        redirectTo: '/dashboard'
     })
 }
 
