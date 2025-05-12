@@ -2,6 +2,7 @@ import PageTitle from '@/components/PageTitle'
 import UserAccountActivity from '@/components/User/UserAccountActivity'
 import UserLoginHistory from '@/components/User/UserLoginHistory'
 import UserDetails from '@/components/User/UserDetails'
+import { users as usersData } from '@/app/(admin)/users/users'
 
 interface UserPageProps {
     params: Promise<{ id: string }>
@@ -10,8 +11,7 @@ interface UserPageProps {
 const UserPage = async ({ params }: UserPageProps) => {
     const { id } = await params
 
-    const response = await fetch(`http://localhost:3000/api/users/${id}`)
-    const user = await response.json()
+    const user = usersData.find(user => user.id === parseInt(id))
 
     if (!user) {
         return <div>User not found</div>

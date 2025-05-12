@@ -17,12 +17,13 @@ const UserAccountActivity = ({ user }: { user: User }) => {
             </CardHeader>
             <CardContent>
                 <div className="space-y-2">
-                    <p className="text-sm flex items-center gap-2">Role: {user.role} <UserIcon className={`h-4 w-4`} /></p>
+                    <p className="text-sm flex items-center gap-2"><UserIcon className={`h-4 w-4`} /> Role: {user.role} </p>
                     <p className="text-sm flex items-center gap-2">
-                        <span className="font-medium">Status:</span> {user.status} <CirclePower className={`h-4 w-4 ${user.status === "online" ? "text-green-500" : "text-red-500"}`} />
+                        <CirclePower className={`h-4 w-4 ${user.status === "online" ? "text-green-500" : "text-red-500"}`} />
+                        <span className="font-medium">Status:</span> {user.status}
                     </p>
                     <p className="text-sm flex items-center gap-2">
-                        <span className="font-medium">Last active:</span> {user.lastActive ? new Date(user.lastActive).toISOString().split("T")[0] : "-"} <Clock className={`h-4 w-4`} />
+                        <Clock className={`h-4 w-4`} />  <span className="font-medium">Last active:</span> {user.lastActive ? new Date(user.lastActive).toISOString().split("T")[0] : "-"}
                     </p>
                 </div>
             </CardContent>

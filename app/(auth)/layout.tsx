@@ -7,7 +7,7 @@ export default function LoginLayout({
 }>) {
     return (
         <html lang="en">
-            <body className="antialiased">
+            <body className="antialiased flex items-center justify-center h-screen">
                 {children}
             </body>
         </html>
