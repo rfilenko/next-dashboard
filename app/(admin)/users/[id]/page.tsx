@@ -1,7 +1,7 @@
 import PageTitle from '@/components/PageTitle'
-import UserAccountActivity from '@/components/User/UserAccountActivity'
-import UserLoginHistory from '@/components/User/UserLoginHistory'
-import UserDetails from '@/components/User/UserDetails'
+import UserAccountActivity from '@/components/user/UserAccountActivity'
+import UserLoginHistory from '@/components/user/UserLoginHistory'
+import UserDetails from '@/components/user/UserDetails'
 import { users as usersData } from '@/app/(admin)/users/users'
 
 interface UserPageProps {

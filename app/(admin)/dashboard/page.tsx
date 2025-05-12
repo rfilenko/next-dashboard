@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
-import UsersList from '@/components/UsersList'
+import UsersList from '@/components/user/UsersList'
 import getSession from '@/lib/getSession'
 import { getUserRole } from '@/lib/getUserRole'
 import PageTitle from '@/components/PageTitle'
@@ -11,12 +11,12 @@ export const metadata = {
 }
 
 interface DashboardProps {
-    searchParams: Promise<{query: string}>
+    searchParams: Promise<{ query: string }>
 }
 
 const Dashboard = async ({ searchParams }: DashboardProps) => {
     const session = await getSession()
-    const {query} = await searchParams
+    const { query } = await searchParams
 
     if (!session?.user) {
         redirect('/login')

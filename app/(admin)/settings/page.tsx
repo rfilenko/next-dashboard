@@ -1,4 +1,4 @@
-import { UserInfo } from '@/components/UserInfo'
+import { UserInfo } from '@/components/user/UserInfo'
 import { redirect } from 'next/navigation'
 import getSession from '@/lib/getSession'
 import PageTitle from '@/components/PageTitle'

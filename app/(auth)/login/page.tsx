@@ -1,5 +1,5 @@
-import FormWrap from "@/components/Form/FormWrap"
-import FormLoginWrapper from "@/components/Form/FormLoginWrapper"
+import FormWrap from "@/components/form/FormWrap"
+import FormLoginWrapper from "@/components/form/FormLoginWrapper"
 
 export const metadata = {
     title: 'Login page',
@@ -7,7 +7,7 @@ export const metadata = {
 }
 
 const LoginPage = () => {
-    return (
+    return (    
         <FormWrap>
             <h1 className="text-2xl font-bold text-center mb-10">Login</h1>
 

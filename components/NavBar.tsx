@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
-import { SignOut } from './Form/SignOut'
+import { SignOut } from './form/SignOut'
 import getSession from '@/lib/getSession'
 import { getUserRole } from '@/lib/getUserRole'
 import { UserCogIcon } from 'lucide-react'
