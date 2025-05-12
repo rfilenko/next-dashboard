@@ -3,6 +3,11 @@ import { redirect } from 'next/navigation'
 import getSession from '@/lib/getSession'
 import PageTitle from '@/components/PageTitle'
 
+export const metadata = {
+    title: 'Settings page',
+    description: 'Settings page',
+}
+
 const SettingsPage = async () => {
     const session = await getSession()
 
