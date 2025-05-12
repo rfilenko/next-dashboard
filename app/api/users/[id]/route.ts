@@ -2,9 +2,13 @@ import { NextResponse } from "next/server"
 import { users } from '@/app/(admin)/users/users'
 import { User as UserType } from "@/app/types"
 
-export async function GET(_request: Request, { params }: { params: { id: string } }) {
+interface Params {
+    params: Promise<{id: string}>
+}
+
+export async function GET(_request: Request, { params }: Params) {
     try {
-        const id = parseInt(params.id)
+        const id = parseInt((await params).id)
         const user: UserType | undefined = users.find(user => user.id === id)
         return NextResponse.json(user)
     } catch (error) {
@@ -13,9 +17,9 @@ export async function GET(_request: Request, { params }: { params: { id: string 
     }
 }
 
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: Request, { params }: Params) {
     try {
-        const id = parseInt(params.id)
+        const id = parseInt((await params).id)
         const body = await request.json()
 
        const {firstName} = body
@@ -35,9 +39,9 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     }
 }
 
-export async function DELETE(_request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(_request: Request, { params }: Params) {
     try {
-        const id = parseInt(params.id)
+        const id = parseInt((await params).id)
 
         const index = users.findIndex(user => user.id === id)
 

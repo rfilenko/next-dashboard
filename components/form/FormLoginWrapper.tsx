@@ -1,5 +1,6 @@
 'use client'
 
+import React from "react";
 import Link from "next/link";
 import Spacer from "@/components/Spacer";
 import SignInGithub from "./SignInGithub";
@@ -18,7 +19,7 @@ const FormLoginWrapper = () => {
             </div>
 
             <Spacer />
-            <p className="text-sm text-center">Don't have an account? <Link href="/register" className="text-primary">Register</Link></p>
+            <p className="text-sm text-center">Don&apos;t have an account? <Link href="/register" className="text-primary">Register</Link></p>
         </>
     )
 }

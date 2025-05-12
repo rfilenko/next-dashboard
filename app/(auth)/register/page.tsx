@@ -1,5 +1,12 @@
-import FormRegister from "@/components/Form/FormRegister";
-import FormWrap from "@/components/Form/FormWrap";
+
+import React from 'react'
+import FormWrap from '@/components/Form/FormWrap'
+import FormRegister from '@/components/Form/FormRegister'
+
+export const metadata = {
+    title: 'Register page',
+    description: 'Register page',
+}
 
 const RegisterPage = () => {
     return (

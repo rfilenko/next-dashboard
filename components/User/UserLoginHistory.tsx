@@ -1,5 +1,6 @@
 "use client"
 
+import React from 'react'
 import { HistoryIcon } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
@@ -56,7 +57,7 @@ const UserLoginHistory = ({ history }: ChartInfoProps) => {
         <Card data-name="UserLoginHistory">
             <CardHeader>
                 <CardTitle>Users login history </CardTitle>
-                <CardDescription  className="flex items-center gap-2"><HistoryIcon className="h-4 w-4" /> {new Date(sortedHistory[0].date).toDateString()} - {new Date(sortedHistory[sortedHistory.length - 1].date).toDateString()}</CardDescription>
+                <CardDescription className="flex items-center gap-2"><HistoryIcon className="h-4 w-4" /> {new Date(sortedHistory[0].date).toDateString()} - {new Date(sortedHistory[sortedHistory.length - 1].date).toDateString()}</CardDescription>
             </CardHeader>
             <CardContent>
                 <ChartContainer config={chartConfig}>
