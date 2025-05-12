@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react'
 import { User } from '@/app/types'
 import { users as usersData } from '@/app/(admin)/users/users'
-import UsersListItem from './UsersListItem'
-import Search from '../Search'
+import UsersListItem from '@/components/User/UsersListItem'
+import Search from '@/components/Search'
 
 const UsersList = ({ query }: { query: string }) => {
     const [users, setUsers] = useState<User[]>([])

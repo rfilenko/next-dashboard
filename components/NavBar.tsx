@@ -1,9 +1,9 @@
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
-import { SignOut } from './form/SignOut'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import SignOut from '@/components/Form/SignOut'
 import getSession from '@/lib/getSession'
 import { getUserRole } from '@/lib/getUserRole'
 import { UserCogIcon } from 'lucide-react'
-import ModeToggle from './ModeToggle'
+import ModeToggle from '@/components/ModeToggle'
 
 const NavBar = async () => {
     const session = await getSession()

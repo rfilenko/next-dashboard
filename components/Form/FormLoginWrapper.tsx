@@ -3,9 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import Spacer from "@/components/Spacer";
-import SignInGithub from "./SignInGithub";
+import SignInGithub from "@/components/Form/SignInGithub";
 import { useState } from "react";
-import FormLogin from "./FormLogin";
+import FormLogin from "@/components/Form/FormLogin";
 
 const FormLoginWrapper = () => {
     const [error, setError] = useState<boolean>(false)

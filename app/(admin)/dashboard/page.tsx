@@ -1,5 +1,6 @@
+import React from 'react'
 import { redirect } from 'next/navigation'
-import UsersList from '@/components/user/UsersList'
+import UsersList from '@/components/User/UsersList'
 import getSession from '@/lib/getSession'
 import { getUserRole } from '@/lib/getUserRole'
 import PageTitle from '@/components/PageTitle'

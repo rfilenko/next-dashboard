@@ -1,7 +1,7 @@
 import { SignOutAction } from '@/actions/register'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 
-export const SignOut = () => {
+const SignOut = () => {
     return (
         <form action={SignOutAction} className="flex items-center justify-end"
         >
@@ -9,3 +9,5 @@ export const SignOut = () => {
         </form>
     )
 }
+
+export default SignOut
