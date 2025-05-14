@@ -1,4 +1,5 @@
 import "../globals.css";
+import { ToastContainer } from "react-toastify";
 
 export default function LoginLayout({
     children,
@@ -9,6 +10,7 @@ export default function LoginLayout({
         <html lang="en">
             <body className="antialiased flex items-center justify-center h-screen">
                 {children}
+                <ToastContainer position="bottom-right" />
             </body>
         </html>
     );
