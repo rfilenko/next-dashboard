@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: UserPageProps) {
     const user = usersData.find(user => user.id === parseInt(id))
     return {
         title: user ? `Details page - ${user.firstName} ${user.lastName}` : 'User not found',
-        description: user ? `Details page - ${user.firstName} ${user.lastName}` : 'User not found',
+        description: user ? `Details page - ${user.firstName} ${user.lastName}` : '',
     }
 }
 
@@ -24,7 +24,7 @@ const UserPage = async ({ params }: UserPageProps) => {
     const user = usersData.find(user => user.id === parseInt(id))
 
     if (!user) {
-        return <div>User not found</div>
+        throw new Error('User not found')
     }
 
     return (

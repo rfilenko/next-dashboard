@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col md:flex-row gap-4`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col md:flex-row gap-4 min-h-screen`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -37,7 +37,7 @@ export default function RootLayout({
           <AppSidebar />
           <main className="flex flex-col w-full">
             <NavBar />
-            <div className="px-4">
+            <div className="px-4 h-full">
               {children}
             </div>
           </main>
