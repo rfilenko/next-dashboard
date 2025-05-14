@@ -10,10 +10,26 @@ export async function GET(_request: Request, { params }: Params) {
     try {
         const id = parseInt((await params).id)
         const user: UserType | undefined = users.find(user => user.id === id)
-        return NextResponse.json(user)
+        return new NextResponse(
+            JSON.stringify(user),
+            {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
     } catch (error) {
-        console.error('Error fetching users:', error)
-        return NextResponse.error()
+        console.error('Error fetching user:', error)
+        return new NextResponse(
+            JSON.stringify({ error: 'Error fetching user' }),
+            {
+                status: 500,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
     }
 }
 
@@ -27,15 +43,39 @@ export async function PATCH(request: Request, { params }: Params) {
        const index = users.findIndex(user => user.id === id)
 
        if (index === -1) {
-           return NextResponse.error()
+           return new NextResponse(
+               JSON.stringify({ error: 'User not found' }),
+               {
+                   status: 404,
+                   headers: {
+                       'Content-Type': 'application/json'
+                   }
+               }
+           )
        }
 
        users[index].firstName = firstName
 
-       return NextResponse.json(users[index])
+       return new NextResponse(
+           JSON.stringify(users[index]),
+           {
+               status: 200, // updated
+               headers: {
+                   'Content-Type': 'application/json'
+               }
+           }
+       )
     } catch (error) {
         console.error('Error updating user:', error)
-        return NextResponse.error()
+        return new NextResponse(
+            JSON.stringify({ error: 'Error updating user' }),
+            {
+                status: 500,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
     }
 }
 
@@ -46,14 +86,38 @@ export async function DELETE(_request: Request, { params }: Params) {
         const index = users.findIndex(user => user.id === id)
 
         if (index === -1) {
-            return NextResponse.error()
+            return new NextResponse(
+                JSON.stringify({ error: 'User not found' }),
+                {
+                    status: 404,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
         }
 
         users.splice(index, 1)
 
-        return NextResponse.json(users)
+        return new NextResponse(
+            JSON.stringify(users),
+            {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
     } catch (error) {
         console.error('Error deleting user:', error)
-        return NextResponse.error()
+        return new NextResponse(
+            JSON.stringify({ error: 'Error deleting user' }),
+            {
+                status: 500,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
     }
 }

@@ -3,10 +3,26 @@ import { users } from '@/app/(admin)/users/users'
 
 export async function GET() {
     try {
-        return NextResponse.json(users)
+        return new NextResponse(
+            JSON.stringify(users),
+            {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
     } catch (error) {
         console.error('Error fetching users:', error)
-        return NextResponse.error()
+        return new NextResponse(
+            JSON.stringify({ error: 'Error fetching users' }),
+            {
+                status: 500,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
     }
 }
 
@@ -52,12 +68,15 @@ export async function POST(request: Request) {
 
         users.push(newUser)
 
-        return new NextResponse(JSON.stringify(newUser), {
-            status: 201,
-            headers: {
-                'Content-Type': 'application/json'
+        return new NextResponse(
+            JSON.stringify(newUser),
+            {
+                status: 201,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }
-        })
+        )
     } catch (error) {
         console.error('Error fetching users:', error)
         return NextResponse.error()
